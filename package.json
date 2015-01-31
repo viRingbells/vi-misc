@@ -1,0 +1,15 @@
+{
+    "name": "vi-misc",
+    "main": "misc.js",
+    "version" : "0.0.0",
+    "author" : "Sun Haohao",
+    "maintainers" : [
+        {
+            "name"  : "Sun Haohao",
+            "email" : "viRingbells@qq.com"
+        }
+    ],
+    "repositories" : "https://github.com/viRingbells/vi-misc.git",
+    "dependencies" : {
+    }
+}
