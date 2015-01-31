@@ -3,17 +3,19 @@ var y = require('..').yieldable;
 
 var app = koa();
 
-var async1 = y(function(arg1, arg2){
+var async1 = y(function(arg1, arg2, done){
     setTimeout(function(){
         this.done("[ASYNC1 : " + arg1 + "," + arg2 + "]");
     }.bind(this));
 });
 
-var async2 = y(function(arg1, arg2){
+var async2 = y(function(arg1, arg2, done){
     setTimeout(function(){
         this.done("[ASYNC2 : " + arg1 + "," + arg2 + "]");
         //or throw error with the following statement:
         //this.throw(new Error("How are you"));
+        //or use the arg 'done' instead of 'this'
+        //done(err, 'foo');
     }.bind(this));
 });
 
