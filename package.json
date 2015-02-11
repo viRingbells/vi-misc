@@ -11,5 +11,7 @@
     ],
     "repositories" : "https://github.com/viRingbells/vi-misc.git",
     "dependencies" : {
+        "co" : "^4.1.0",
+        "koa-compose" : "^2.3.0"
     }
 }

@@ -7,9 +7,11 @@ middlewares.push(function*(next){
     console.log('    next in 1000ms');
     yield function(done){
         setTimeout(function(){
+            console.log('    ok');
             done();
         },1000);
     };
+    yield next;
 });
 
 middlewares.push(function*(next){
@@ -18,7 +20,8 @@ middlewares.push(function*(next){
     var a = yield function(done){
         setTimeout(function(){ done(null, 'AA')});
     };
-    return 'result';
+    console.log('    ok');
+    yield next;
 });
 
 middlewares.push(function*(next){
@@ -31,6 +34,7 @@ middlewares.push(function*(next){
     };
 });
 
-handle(middlewares, ['A', 'B'], function(){
+handle(middlewares, ['A', 'B'], function(err){
     console.log("All middlewares handled");   
+    if(err) console.log("Error:" + err.message);
 });
