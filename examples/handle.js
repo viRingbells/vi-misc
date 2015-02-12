@@ -1,4 +1,4 @@
-var handle = require('../..').handle;
+var handle = require('..').handle;
 
 var middlewares = [];
 
