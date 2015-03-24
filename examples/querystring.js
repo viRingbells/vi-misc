@@ -1,8 +1,8 @@
-require('..').querystring;
+var qs = require('..').querystring;
 
 var str = 'a=b&c=d&hello=world';
 
-console.log(str.toQueryObject());
+console.log(qs.parseToQueryObject(str));
 
 var obj = {
     'c' : 'd',
@@ -10,4 +10,4 @@ var obj = {
     'foo' : 'bar',
 };
 
-console.log(obj.toQueryString());
+console.log(qs.parseToQueryString(obj));
