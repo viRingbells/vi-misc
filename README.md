@@ -1,31 +1,21 @@
 # vi-misc
-A set of utils or whatever ...
 
-# Install
-Install with npm
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![Test coverage][coveralls-image]][coveralls-url]
 
-    npm install vi-misc
+A set of utils...
 
-# Handle
-Handle is used to execute a set of middlewares(generator functions) the same as [koa](http://koajs.com/) does.
-Usage :
+# misc.path
+The path utils
 
-    var handle = require('vi-misc').handle;
-    handle(middlewares, context, callback);
+* path.root - returns the app root, which is the directory of main module file.
+* path.absolute(target) - make target into absolute form and return.
 
-# Yieldable
-Yiedable is a syntactic sugar to create yieldable functions.
-Usage :
 
-    var y = require('vi-misc').yieldable;
-    var fn = y(function(arg1, arg2, done){
-        //TODO
-    });
-
-`fn` is the same as
-
-    function(arg1, arg2){
-        return function(done){
-            //TODO
-        }
-    }
+[npm-image]: https://img.shields.io/npm/v/vi-misc.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/vi-misc
+[travis-image]: https://img.shields.io/travis/viRingbells/vi-misc/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/viRingbells/vi-misc
+[coveralls-image]: https://img.shields.io/codecov/c/github/viRingbells/vi-misc.svg?style=flat-square
+[coveralls-url]: https://codecov.io/github/viRingbells/vi-misc?branch=master
