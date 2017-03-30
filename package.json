@@ -1,7 +1,7 @@
 {
   "name": "vi-misc",
   "main": "misc.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "node": ">= 7.6"
   },
@@ -14,10 +14,12 @@
   ],
   "repositories": "https://github.com/viRingbells/vi-misc.git",
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --recursive test",
+    "test": "./node_modules/.bin/eslint index.js source/** test/** && ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --recursive test",
     "_test": "./node_modules/.bin/mocha --require should --recursive test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^2.6.3"
+  },
   "devDependencies": {
     "eslint": "^3.17.1",
     "istanbul": "^0.4.5",
