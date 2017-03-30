@@ -3,7 +3,6 @@
  **/
 'use strict';
 
-const debug   = require('debug')('misc.test.path');
 const path    = require('path');
 const mpath   = require('..').path;
 
@@ -17,7 +16,7 @@ describe('path.root', () => {
 
 describe('path.absolute', () => {
     it('should be a function', (done) => {
-        mpath.absolute.should.be.an.instanceOf(Function);
+        mpath.absolute.should.be.an.instanceof(Function);
         done();
     });
     it('should parse a relative path into absolute path', (done) => {
@@ -36,7 +35,32 @@ describe('path.absolute', () => {
         const epath = ['this', 'is', 'not', 'a', 'path'];
         let error = {};
         try { mpath.absolute(epath); } catch (e) { error = e; }
-        error.should.be.an.instanceOf(Error);
+        error.should.be.an.instanceof(Error);
+        done();
+    });
+});
+
+describe('path.split', () => {
+    it('should be a function', (done) => {
+        mpath.split.should.be.an.instanceof(Function);
+        done();
+    });
+    it('should split a path into array', (done) => {
+        const mypath = "path/to/file.js";
+        const split = mpath.split(mypath);
+        split.should.be.an.instanceof(Array).with.lengthOf(3);
+        split[0].should.be.exactly('path');
+        split[1].should.be.exactly('to');
+        split[2].should.be.exactly('file.js');
+        done();
+    });
+    it('should split a path with special chars into array', (done) => {
+        const mypath = "path\\/with\\/specails/to/file.js";
+        const split = mpath.split(mypath);
+        split.should.be.an.instanceof(Array).with.lengthOf(3);
+        split[0].should.be.exactly('path\\/with\\/specails');
+        split[1].should.be.exactly('to');
+        split[2].should.be.exactly('file.js');
         done();
     });
 });
