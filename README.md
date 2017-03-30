@@ -11,6 +11,7 @@ The path utils
 
 * path.root - returns the app root, which is the directory of main module file.
 * path.absolute(target) - make target into absolute form and return.
+* path.split(target) - split target into array
 
 
 [npm-image]: https://img.shields.io/npm/v/vi-misc.svg?style=flat-square
