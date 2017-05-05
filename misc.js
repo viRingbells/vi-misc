@@ -12,5 +12,8 @@ module.exports = {
     },
     get time() {
         return require('./lib/time');
-    }
+    },
+    get function() {
+        return require('./lib/function');
+    },
 };
