@@ -5,7 +5,7 @@
 
 const time = require('..').time;
 
-describe('for utils.time.format', () => {
+describe('time.format', () => {
     const date = new Date();
     date.setFullYear(2016);
     date.setMonth(8); // refer to september

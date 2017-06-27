@@ -5,7 +5,7 @@
 
 const number = require('..').number;
 
-describe('for number.th', () => {
+describe('number.th', () => {
     it('should return 1st, 2nd, 3rd, 4th, 5th ...', done => {
         number.th(1).should.be.exactly('1st');
         number.th(2).should.be.exactly('2nd');
