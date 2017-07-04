@@ -1,6 +1,6 @@
 'use strict';
 
-const mfunc = require('..').function;
+const mfunc = require('vi-misc').function;
 
 describe('function.once', () => {
     it('should be called only once for a function', (done) => {

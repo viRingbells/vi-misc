@@ -4,7 +4,7 @@
 'use strict';
 
 const path    = require('path');
-const mpath   = require('..').path;
+const mpath   = require('vi-misc').path;
 
 describe('path.root', () => {
     it('should be the directory of the main script', (done) => {

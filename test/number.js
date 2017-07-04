@@ -3,7 +3,7 @@
  **/
 'use strict';
 
-const number = require('..').number;
+const number = require('vi-misc').number;
 
 describe('number.th', () => {
     it('should return 1st, 2nd, 3rd, 4th, 5th ...', done => {

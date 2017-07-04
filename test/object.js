@@ -1,6 +1,6 @@
 'use strict';
 
-const mobj  = require('..').object;
+const mobj  = require('vi-misc').object;
 
 describe('object.each', () => {
     const obj = {
@@ -50,5 +50,13 @@ describe('object.each', () => {
             }
         }, 1);
         count.should.be.exactly(3);
+    });
+
+    it('should clone an object', async () => {
+        let b = mobj.clone(obj);
+        b.c.ff[1].jjj.kkkk.should.be.exactly('KKKK');
+        b.c.ff[1].jjj.kkkk = 'KKKK2';
+        b.c.ff[1].jjj.kkkk.should.be.exactly('KKKK2');
+        obj.c.ff[1].jjj.kkkk.should.be.exactly('KKKK');
     });
 });

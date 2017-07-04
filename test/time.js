@@ -3,7 +3,7 @@
  **/
 'use strict';
 
-const time = require('..').time;
+const time = require('vi-misc').time;
 
 describe('time.format', () => {
     const date = new Date();

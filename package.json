@@ -1,7 +1,7 @@
 {
   "name": "vi-misc",
-  "main": "misc.js",
-  "version": "1.5.0",
+  "main": "index.js",
+  "version": "1.6.0",
   "engines": {
     "node": ">= 7.6"
   },
@@ -14,12 +14,16 @@
   ],
   "repositories": "https://github.com/viRingbells/vi-misc.git",
   "scripts": {
-    "test": "./node_modules/.bin/eslint index.js example/** source/** && ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --recursive test",
-    "debug": "node --inspect-brk=9229 example/index.js"
+    "lint": "./node_modules/.bin/eslint index.js lib/**",
+    "pretest": "npm run lint && npm link && npm link vi-misc",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --recursive test",
+    "posttest": "npm unlink",
+    "debug": "node --inspect-brk=9229 example/app.js"
   },
   "dependencies": {},
   "devDependencies": {
     "eslint": "^3.17.1",
+    "eslint-plugin-spellcheck": "0.0.8",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "should": "^11.2.1"
