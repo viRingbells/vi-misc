@@ -19,4 +19,7 @@ module.exports = {
     get object() {
         return require('./lib/object');
     },
+    get promisify() {
+        return require('./lib/promisify');
+    }
 };

@@ -31,6 +31,8 @@ rules:
         - func
         - lodash
         - nd
+        - promisify
+        - promisified
         - rd
         - sep
         - th

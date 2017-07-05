@@ -1,7 +1,7 @@
 {
   "name": "vi-misc",
   "main": "index.js",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "engines": {
     "node": ">= 7.6"
   },
@@ -20,7 +20,9 @@
     "posttest": "npm unlink",
     "debug": "node --inspect-brk=9229 example/app.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bluebird": "^3.5.0"
+  },
   "devDependencies": {
     "eslint": "^3.17.1",
     "eslint-plugin-spellcheck": "0.0.8",
