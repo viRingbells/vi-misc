@@ -1,6 +1,7 @@
 'use strict';
 
 const mobj  = require('vi-misc').object;
+const should  = require('should');
 
 describe('object.each', () => {
     const obj = {
@@ -50,5 +51,46 @@ describe('object.each', () => {
             }
         }, 1);
         count.should.be.exactly(3);
+    });
+});
+
+describe('object.has/get/set', () => {
+    const object = {
+        a: {
+            bb: 'bb-value',
+            cc: {
+                ddd: 'ddd-value',
+                eee: 'eee-value',
+            },
+        },
+    };
+
+    it('should return true on object.hasByKeys with existing keys', async () => {
+        mobj.hasByKeys(object, "a").should.be.ok;
+        mobj.hasByKeys(object, "a", "bb").should.be.ok;
+        mobj.hasByKeys(object, "a", "cc").should.be.ok;
+        mobj.hasByKeys(object, "a", "cc", "ddd").should.be.ok;
+        mobj.hasByKeys(object, "a", "cc", "eee").should.be.ok;
+    });
+
+    it('should return false on object.hasByKeys with none-existing keys', async () => {
+        mobj.hasByKeys(object, "z").should.not.be.ok;
+        mobj.hasByKeys(object, "a", "zz").should.not.be.ok;
+        mobj.hasByKeys(object, "a", "cc", "zzz").should.not.be.ok;
+        mobj.hasByKeys(object, "a", "cc", "ddd", "zzz").should.not.be.ok;
+    });
+
+    it('should return the value on object.getByKeys', async () => {
+        mobj.getByKeys(object, "a").should.be.an.instanceof(Object);
+        mobj.getByKeys(object, "a").should.have.property('bb', 'bb-value');
+        mobj.getByKeys(object, "a", "cc", "ddd").should.be.exactly('ddd-value');
+        should(mobj.getByKeys(object, "a", "xx", "yyy", "zzzz")).be.exactly(undefined);
+    });
+
+    it('should set the value on object.setByKeys', async () => {
+        mobj.setByKeys(object, "a-new-ddd-value", "a", "cc", "ddd");
+        mobj.getByKeys(object, "a", "cc", "ddd").should.be.exactly("a-new-ddd-value");
+        mobj.setByKeys(object, "a-new-zzzz-value", "a", "xx", "yyy", "zzzz");
+        mobj.getByKeys(object, "a", "xx", "yyy", "zzzz").should.be.exactly("a-new-zzzz-value");
     });
 });
