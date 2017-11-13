@@ -25,6 +25,26 @@ describe('object.each', () => {
 
     const arr = ['0000', obj, '2222', obj];
 
+    it('should clone the object', async () => {
+        const c = mobj.clone(obj);
+        c.c.dd.should.be.exactly('DD');
+        obj.c.dd.should.be.exactly('DD');
+        c.c.dd = 'new DD';
+        c.c.dd.should.be.exactly('new DD');
+        obj.c.dd.should.be.exactly('DD');
+        const a = mobj.clone(arr);
+        a[0].should.be.exactly('0000');
+        arr[0].should.be.exactly('0000');
+        a[1].c.dd.should.be.exactly('DD');
+        arr[1].c.dd.should.be.exactly('DD');
+        a[0] = '1111';
+        arr[0].should.be.exactly('0000');
+        a[1].c.dd = 'not DD';
+        arr[1].c.dd.should.be.exactly('DD');
+        const d = mobj.clone('D');
+        d.should.be.exactly('D');
+    });
+
     it('should scan all properties', async () => {
         let count = 0;
         mobj.each(obj, (property, ...keys) => {
