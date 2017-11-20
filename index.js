@@ -4,22 +4,22 @@
 'use strict';
 
 module.exports = {
-    get path() {
-        return require('./lib/path');
+    get function() {
+        return require('./lib/function');
     },
     get number() {
         return require('./lib/number');
     },
-    get time() {
-        return require('./lib/time');
-    },
-    get function() {
-        return require('./lib/function');
-    },
     get object() {
         return require('./lib/object');
     },
+    get path() {
+        return require('./lib/path');
+    },
     get promisify() {
         return require('./lib/promisify');
-    }
+    },
+    get time() {
+        return require('./lib/time');
+    },
 };
