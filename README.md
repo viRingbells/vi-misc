@@ -6,6 +6,27 @@
 
 A set of utils...
 
+# misc.function
+Utils for functions
+
+* function.once(...func_list) - make sure the given functions will not be executed more than onece.
+* function.limit(func_list, options) - make sure the given functions will be executed more than a certain count.
+
+# misc.number
+The number utils
+
+* number.th - Append 'th' on a number.
+
+# misc.object
+Utils for objects.
+
+* clone(object) - Deep clone
+* each(object, handler) - Apply handlers for each property of the object.
+* hasByKey(object, ...keys) - Test if object.xxx.xxx.xxx exists, which xxx,xxx,xxx as just the param 'keys'
+* setByKeys(object, value, ...keys)
+* getByKeys(object, value, ...keys)
+  * This is supposed to be used when keys are dynamic and uncertain. In other cases, use object.xx.xx.xx directly.
+
 # misc.path
 The path utils
 
@@ -13,15 +34,16 @@ The path utils
 * path.absolute(target) - make target into absolute form and return.
 * path.split(target) - split target into array.
 
+# misc.promisify
+Promisify with bluebird
+
+* promisify.all(target, options) - Promisify all method for callback(error, result) like cases.
+* catchError(promise) - Catch and return the error the promise throws. Otherwise returns null.
+
 # misc.time
 The time utils
 
 * time.format - format time, `time.format('YYYY-MM-DD HH:II:SS')`.
-
-# misc.number
-The number utils
-
-* number.th - Append 'th' on a number.
 
 
 [npm-image]: https://img.shields.io/npm/v/vi-misc.svg?style=flat-square
