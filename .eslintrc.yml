@@ -24,6 +24,7 @@ rules:
       lang: en_US
       skipWords:
         - args
+        - async
         - concat
         - dirname
         - filename

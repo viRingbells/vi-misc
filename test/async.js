@@ -1,16 +1,16 @@
 'use strict';
 
-const fs          = require('fs');
-const mpromisify  = require('vi-misc').promisify;
+const fs      = require('fs');
+const masync  = require('vi-misc').async;
 
 
-describe('promisify.all', () => {
+describe('async.all', () => {
     it('should promisify the functions only once', (done) => {
-        mpromisify.all(fs);
+        masync.all(fs);
         fs.readFileAsync.should.be.an.instanceof(Function);
         let error = {};
         try {
-            mpromisify.all(fs);
+            masync.all(fs);
         }
         catch (e) {
             error = e;
@@ -21,12 +21,12 @@ describe('promisify.all', () => {
 });
 
 
-describe('promisify.catchError', () => {
+describe('async.catchError', () => {
     it('should catch and return error', (done) => {
         function throw_error() {
             return Promise.reject(new Error("Faked Error"));
         }
-        mpromisify.catchError(throw_error()).then(error => {
+        masync.catchError(throw_error()).then(error => {
             error.should.be.an.instanceOf(Error).with.property('message', 'Faked Error');
             done();
         });
@@ -35,7 +35,7 @@ describe('promisify.catchError', () => {
         function throw_no_errors() {
             return Promise.resolve();
         }
-        mpromisify.catchError(throw_no_errors()).then(error => {
+        masync.catchError(throw_no_errors()).then(error => {
             (error === null).should.be.ok;
             done();
         });

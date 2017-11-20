@@ -16,8 +16,8 @@ module.exports = {
     get path() {
         return require('./lib/path');
     },
-    get promisify() {
-        return require('./lib/promisify');
+    get async() {
+        return require('./lib/async');
     },
     get time() {
         return require('./lib/time');
