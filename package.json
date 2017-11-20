@@ -17,7 +17,7 @@
     "lint": "./node_modules/.bin/eslint index.js lib/**",
     "test:clear-env": "npm unlink vi-misc && npm unlink && npm install",
     "test:prepare-env": "npm link && npm link vi-misc",
-    "pretest": "npm run lint && npm run test:clear-env && npm run test:prepare-env",
+    "pretest": "npm run test:clear-env && npm run lint && npm run test:prepare-env",
     "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should --recursive test",
     "posttest": "npm run test:clear-env"
   },
