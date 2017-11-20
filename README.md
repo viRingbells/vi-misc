@@ -34,10 +34,10 @@ The path utils
 * path.absolute(target) - make target into absolute form and return.
 * path.split(target) - split target into array.
 
-# misc.promisify
+# misc.async
 Promisify with bluebird
 
-* promisify.all(target, options) - Promisify all method for callback(error, result) like cases.
+* all(target, options) - Promisify all method for callback(error, result) like cases.
 * catchError(promise) - Catch and return the error the promise throws. Otherwise returns null.
 
 # misc.time
