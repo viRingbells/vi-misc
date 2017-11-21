@@ -48,6 +48,10 @@ describe('object.each', () => {
     it('should merge the object with some others', async () => {
         const m = mobj.merge(obj, { A: "A" }, { c: { DD: "DD" }}, { c: { dd: "dd" }});
         m.a.should.be.exactly('A');
+        m.A.should.be.exactly('A');
+        m.c.DD.should.be.exactly('DD');
+        m.c.dd.should.be.exactly('dd');
+        m.c.ee.should.be.an.instanceOf(Array);
     });
 
     it('should scan all properties', async () => {
