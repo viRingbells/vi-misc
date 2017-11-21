@@ -21,6 +21,7 @@ The number utils
 Utils for objects.
 
 * clone(object) - Deep clone
+* merge(object, ...sources) - Deep merge
 * each(object, handler) - Apply handlers for each property of the object.
 * hasByKey(object, ...keys) - Test if object.xxx.xxx.xxx exists, which xxx,xxx,xxx as just the param 'keys'
 * setByKeys(object, value, ...keys)
