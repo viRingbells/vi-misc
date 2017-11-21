@@ -122,4 +122,11 @@ describe('object.has/get/set', () => {
         mobj.setByKeys(object, "a-new-zzzz-value", "a", "xx", "yyy", "zzzz");
         mobj.getByKeys(object, "a", "xx", "yyy", "zzzz").should.be.exactly("a-new-zzzz-value");
     });
+
+    it('should remove the value on object.removeBykeys', async () => {
+        mobj.setByKeys(object, "a-new-zzzz-value", "a", "xx", "yyy", "zzzz");
+        mobj.removeByKeys(object, "a", "xx", "yyy", "zzzz");
+        mobj.hasByKeys(object, "a", "xx", "yyy", "zzzz").should.be.not.ok;
+        mobj.removeByKeys(object, "not-exist");
+    });
 });
