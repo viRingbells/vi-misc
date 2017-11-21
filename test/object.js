@@ -45,6 +45,11 @@ describe('object.each', () => {
         d.should.be.exactly('D');
     });
 
+    it('should merge the object with some others', async () => {
+        const m = mobj.merge(obj, { A: "A" }, { c: { DD: "DD" }}, { c: { dd: "dd" }});
+        m.a.should.be.exactly('A');
+    });
+
     it('should scan all properties', async () => {
         let count = 0;
         mobj.each(obj, (property, ...keys) => {
