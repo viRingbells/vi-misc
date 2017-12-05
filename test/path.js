@@ -54,11 +54,20 @@ describe('path.split', () => {
         split[2].should.be.exactly('file.js');
         done();
     });
-    it('should split a path with special chars into array', (done) => {
+    it('should split a path with back slashes into array', (done) => {
         const mypath = "path\\/with\\/specails/to/file.js";
         const split = mpath.split(mypath);
         split.should.be.an.instanceof(Array).with.lengthOf(3);
         split[0].should.be.exactly('path\\/with\\/specails');
+        split[1].should.be.exactly('to');
+        split[2].should.be.exactly('file.js');
+        done();
+    });
+    it('should split a path with special chars into array', (done) => {
+        const mypath = "path@with:specails/to/file.js";
+        const split = mpath.split(mypath);
+        split.should.be.an.instanceof(Array).with.lengthOf(3);
+        split[0].should.be.exactly('path@with:specails');
         split[1].should.be.exactly('to');
         split[2].should.be.exactly('file.js');
         done();
