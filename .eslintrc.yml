@@ -2,6 +2,8 @@ env:
   es6: true
   node: true
 extends: 'eslint:recommended'
+parserOptions:
+  ecmaVersion: 8
 rules:
   indent:
     - error
@@ -34,6 +36,8 @@ rules:
         - nd
         - promisify
         - promisified
+        - rej
+        - res
         - rd
         - sep
         - th

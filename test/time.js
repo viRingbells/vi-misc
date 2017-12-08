@@ -24,4 +24,9 @@ describe('time.format', () => {
         time.format('Day3, Date Month4 Year', date).should.be.exactly('Thu, 28th Sept 2016');
         done();
     });
+
+    it('should be ok with default time(now)', done => {
+        time.format('Day3, Date Month4 Year').should.be.ok;
+        done();
+    });
 });
