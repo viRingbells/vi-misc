@@ -46,6 +46,12 @@ The time utils
 
 * time.format - format time, `time.format('YYYY-MM-DD HH:II:SS')`.
 
+# misc.Error
+The custom error
+
+* new Error(message, code) - Create an error with custom code
+* new Error(message, props) - Create an error with properties assigned with argument `props`
+
 
 [npm-image]: https://img.shields.io/npm/v/vi-misc.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/vi-misc
