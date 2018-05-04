@@ -22,4 +22,10 @@ module.exports = {
     get time() {
         return require('./lib/time');
     },
+    get error() {
+        return require('./lib/error');
+    },
+    get Error() {
+        return this.error;
+    },
 };
